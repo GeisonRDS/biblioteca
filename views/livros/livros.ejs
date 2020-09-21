@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <%- include ('../partials/head'); %>
+    <body>
+        <div class="container">
+            <%- include ('../partials/navbar'); %>
+            <h3>Livros cadastrados</h3>
+            <a href="/livros/novo" class="btn btn-primary">Novo livro</a>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Título</th>
+                        <th>Autor</th>
+                        <th>Editora</th>
+                        <th>Ano</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% livros.forEach(function(livro) { %>
+                        <tr>
+                            <th><%=livro.id%></th>
+                            <th><%=livro.titulo%></th>
+                            <th><%=livro.autor%></th>
+                            <th><%=livro.editora%></th>
+                            <th><%=livro.ano%></th>
+                            <th><a href="/livros/editar/<%=livro.id%>">editar</a></th>
+                            <th><a href="/livros/excluir/<%=livro.id%>" onclick="return confirm('Confirmar a exclusão?')">excluir</a></th>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+        <script
+            src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+            crossorigin="anonymous">
+        </script>
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="/js/bootstrap.min.js"></script>
+    </body>
+</html>

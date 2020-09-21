@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <%- include ('../partials/head'); %>
+    <body>
+        <div class="container">
+            <%- include ('../partials/navbar'); %>
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Cadastro de Livros</h3>
+                    <form action="/livros/salvar" method="post">
+                        <div class="form-group">
+                            <label for="titulo">Título</label>
+                            <input id="titulo" type="text" name="titulo" placeholder="Informe o título do livro." class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="autor">Autor</label>
+                            <input id="autor" type="text" name="autor" placeholder="Informe o autor do livro." class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editora">Editora</label>
+                            <input id="editora" type="text" name="editora" placeholder="Informe a editora do livro." class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ano">Ano</label>
+                            <input id="ano" type="text" name="ano" placeholder="Informe o ano do livro." class="form-control" required>
+                        </div>
+                        <input type="submit" class="btn btn-primary" value="salvar">
+                        <a href="/livros" class="btn btn-warning">Lista de livros</a>
+                    </form>
+                </div>
+            </div>
+            <% if(mensagem) { %>
+                <div class="alert alert-info">
+                    <strong>Novo Registro</strong> <%=mensagem%>
+                </div>
+            <% } %>
+        </div>
+        <script
+            src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+            crossorigin="anonymous">
+        </script>
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="/js/bootstrap.min.js"></script>
+    </body>
+</html>
